@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-__author__ = 'mnowotka'
+__author__ = 'berenger'
 
 import sys
 
@@ -12,7 +12,7 @@ except ImportError:
     use_setuptools()
     from setuptools import setup
 setup(
-    name='standardiser',
+    name='standardizer',
     version='0.1.7',
     author='Francis Atkinson',
     author_email='francis@ebi.ac.uk',
