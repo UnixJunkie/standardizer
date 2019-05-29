@@ -12,7 +12,7 @@ except ImportError:
     use_setuptools()
     from setuptools import setup
 setup(
-    name='standardizer',
+    name='chemo-standardizer',
     version='0.1.7',
     author='Francis Atkinson',
     author_email='francis@ebi.ac.uk',
@@ -24,7 +24,7 @@ setup(
             'standardiser=standardiser.bin.standardise_mols:main']},
     packages=['standardiser',
               'standardiser.bin'],
-    long_description=open('ReadMe.txt').read(),
+    long_description=open('README.md').read(),
     package_data={
         'standardiser': ['bin/*', 'data/*', 'docs/*'],
         },
