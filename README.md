@@ -9,7 +9,7 @@ Note that RDKit must also be installed and accessible to Python.
 
 Or, install via pip:
 ```
-pip install standardiser
+pip install chemo-standardizer
 ```
 
 Please see the IPython Notebooks in docs/ or the HTML versions in docs/html/
