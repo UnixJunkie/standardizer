@@ -1,0 +1,37 @@
+
+How to upload a new version of the package so that pip can install it.
+Inspired by https://packaging.python.org/tutorials/packaging-projects/
+
+# executing setup.py
+
+# note that you might need to bump the version number in there
+# so that the tarball can be uploaded
+
+rm -rf dist # cleanup any previous run
+python3 -m pip install --user --upgrade setuptools wheel # update stuffs
+python3 setup.py sdist bdist_wheel
+
+# upload tarballs to pipy test site
+
+python3 -m pip install --user --upgrade twine # update stuff
+python3 -m twine upload --repository-url https://test.pypi.org/legacy/ dist/*
+
+# check package is installable from test site
+
+pip3 uninstall chemo-standardizer # remove previous one
+python3 -m pip install --index-url https://test.pypi.org/simple/ \
+  --no-deps chemo-standardizer
+
+# check it is really installed and runnable
+which standardiser
+standardiser -h
+
+# if tests are OK, upload to production packages site
+python3 -m twine upload dist/*
+
+# check install from production packages site
+
+pip3 uninstall chemo-standardiser
+pip3 install chemo-standardiser
+which standardiser
+standardiser -h
